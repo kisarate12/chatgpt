@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>シラレル郵送DM｜「今、検討している企業」にDMを届ける</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #00215d;
+      --accent: #0071bc;
+      --light-bg: #e8f4ff;
+      --light-blue: #8fd0ff;
+      --text-main: #1a1f36;
+      --text-muted: #6b7280;
+      --border-soft: #dde5f0;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 30px rgba(0, 33, 93, 0.08);
+      --shadow-light: 0 4px 14px rgba(0, 33, 93, 0.06);
+      --bg-section: #f5f7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading span.tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(0, 33, 93, 0.06);
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: 28px;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+      background: #ffffff;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #00429e);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 33, 93, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 33, 93, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.7);
+      color: #ffffff;
+    }
+
+    .btn-outline--blue {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #ffffff;
+    }
+
+    .btn-outline--blue:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--primary);
+    }
+
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(221, 229, 240, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 140px;
+      height: auto;
+    }
+
+    .service-tagline {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .main-nav a {
+      color: var(--primary);
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .main-nav a:hover {
+      opacity: 1;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      margin: 4px 0;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--accent), #00215d);
+      color: #ffffff;
+      padding: 72px 0 64px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-copy-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.15);
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy-eyebrow span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      opacity: 0.95;
+      margin-bottom: 16px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      opacity: 0.92;
+      margin-bottom: 20px;
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-visual {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-visual-inner {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 8px 26px rgba(0, 33, 93, 0.18);
+      border: 1px solid rgba(0, 33, 93, 0.04);
+    }
+
+    .hero-window-chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .hero-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .hero-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #e5e7eb;
+    }
+
+    .hero-address-bar {
+      flex: 1;
+      height: 18px;
+      border-radius: 999px;
+      background: #f3f4f6;
+    }
+
+    .hero-visual-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-visual-mock img {
+      border-radius: 10px;
+      border: 1px solid #edf2ff;
+    }
+
+    .hero-visual-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--primary);
+    }
+
+    .hero-visual-tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .hero-pill {
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      background: #f3f4ff;
+      border: 1px solid #dde3ff;
+    }
+
+    /* Hero form */
+    .hero-form-wrapper {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 18px;
+      box-shadow: var(--shadow-soft);
+      color: var(--text-main);
+      border: 1px solid rgba(0, 33, 93, 0.06);
+    }
+
+    .hero-form-header {
+      margin-bottom: 10px;
+    }
+
+    .hero-form-header h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      color: var(--primary);
+    }
+
+    .hero-form-header p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+      margin-top: 12px;
+    }
+
+    .form-grid .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .form-field label {
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .form-field small {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      padding: 7px 9px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+      font-family: inherit;
+      background: #f9fafb;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: #7ba4ff;
+      box-shadow: 0 0 0 1px rgba(123, 164, 255, 0.35);
+      background: #ffffff;
+    }
+
+    .form-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .form-actions {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-start;
+    }
+
+    .form-actions .btn-primary {
+      min-width: 160px;
+      justify-content: center;
+    }
+
+    .form-actions small {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Logo slider */
+    .logo-strip {
+      background: var(--bg-section);
+      padding: 36px 0;
+    }
+
+    .logo-strip-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .logo-strip-label {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .logo-row {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 8px 2px 6px;
+      scrollbar-width: thin;
+    }
+
+    .logo-card {
+      flex: 0 0 120px;
+      height: 40px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(0, 33, 93, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+    }
+
+    .logo-card img {
+      max-height: 26px;
+      object-fit: contain;
+    }
+
+    /* Problems */
+    .section-problems {
+      background: #ffffff;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .problem-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .problem-icon {
+      width: 100%;
+      max-width: 140px;
+      height: auto;
+      border-radius: 12px;
+      background: none;
+      display: block;
+      margin: 0 auto 12px;
+    }
+
+    .problem-icon img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .problem-card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .problem-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* About service */
+    .section-about {
+      background: var(--bg-section);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-label {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .about-title {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .about-lead {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .about-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .metric-pill {
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      box-shadow: var(--shadow-light);
+      font-size: 12px;
+    }
+
+    .metric-pill strong {
+      font-size: 18px;
+      margin-right: 4px;
+      color: var(--primary);
+    }
+
+    .about-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .about-bullets span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #34d399;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .about-note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .about-visual {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 33, 93, 0.06);
+    }
+
+    .about-visual-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .about-visual-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .about-visual-tag {
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 11px;
+    }
+
+    .about-visual-mock img {
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* Features */
+    .section-features {
+      background: #ffffff;
+    }
+
+    .feature-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .feature-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 28px;
+      align-items: center;
+      padding: 20px 18px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-section);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(0, 33, 93, 0.04);
+    }
+
+    .feature-block:nth-child(2) {
+      background: #ffffff;
+    }
+
+    .feature-block:nth-child(2) .feature-media {
+      order: 2;
+    }
+
+    .feature-block:nth-child(2) .feature-copy {
+      order: 1;
+    }
+
+    .feature-eyebrow {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .feature-list li span.bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .feature-media {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 12px;
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      box-shadow: var(--shadow-light);
+    }
+
+    .feature-media img {
+      border-radius: 10px;
+    }
+
+    /* CTA download */
+    .section-cta-download {
+      background: linear-gradient(135deg, var(--accent), #0071bc);
+      color: #ffffff;
+    }
+
+    .cta-download-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .cta-download-heading h2 {
+      color: #ffffff;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .cta-download-heading p {
+      font-size: 14px;
+      opacity: 0.95;
+      margin-bottom: 14px;
+    }
+
+    .cta-download-points {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+      font-size: 13px;
+      opacity: 0.94;
+    }
+
+    .cta-download-points li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .cta-download-points span.check {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .cta-download-sub-note {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .cta-download-form {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      color: var(--text-main);
+      border: 1px solid rgba(0, 33, 93, 0.06);
+    }
+
+    /* Case studies */
+    .section-cases {
+      background: #ffffff;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .case-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      box-shadow: var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .case-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .case-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .case-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .case-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .case-tag {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      background: #f3f4ff;
+      color: var(--primary);
+    }
+
+    /* Pricing */
+    .section-pricing {
+      background: var(--bg-section);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      box-shadow: var(--shadow-light);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pricing-card--highlight {
+      border: 1px solid var(--accent);
+      box-shadow: 0 14px 32px rgba(255, 80, 80, 0.22);
+      transform: translateY(-4px);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .pricing-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--primary);
+    }
+
+    .pricing-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pricing-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 6px 0 2px;
+    }
+
+    .pricing-price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .pricing-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .pricing-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .pricing-feature-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .pricing-feature-check {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    .pricing-actions {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pricing-actions small {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Campaign band */
+    .section-campaign {
+      background: #fff7ed;
+      padding: 18px 0;
+    }
+
+    .campaign-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .campaign-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .campaign-badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .campaign-text strong {
+      color: var(--primary);
+    }
+
+    .campaign-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Options */
+    .section-options {
+      background: #ffffff;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .option-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      border: 1px solid rgba(0, 33, 93, 0.06);
+      box-shadow: var(--shadow-light);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .option-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-icon img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    .option-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .option-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .option-footer {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* FAQ */
+    .section-faq {
+      background: var(--bg-section);
+    }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    details.faq-item {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0, 33, 93, 0.08);
+      box-shadow: var(--shadow-light);
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    details.faq-item[open] {
+      border-color: var(--primary);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .faq-toggle-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 33, 93, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--primary);
+    }
+
+    details.faq-item[open] .faq-toggle-icon {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .faq-answer {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.5);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--primary);
+      color: #e5e7eb;
+      padding-top: 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .footer-logo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-logo-img {
+      width: 150px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #cbd5f5;
+    }
+
+    .footer-links {
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .footer-links a {
+      color: #e5e7eb;
+      opacity: 0.9;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .footer-form-wrapper {
+      background: rgba(15, 23, 42, 0.72);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .footer-form-wrapper h3 {
+      color: #ffffff;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .footer-form-wrapper p {
+      font-size: 12px;
+      color: #cbd5f5;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      padding: 10px 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .footer-mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-mini-nav a {
+      color: #cbd5f5;
+      opacity: 0.9;
+    }
+
+    .footer-mini-nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .about-inner,
+      .cta-download-inner,
+      .footer-top {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        gap: 26px;
+      }
+
+      .hero-visual-body {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-download-inner {
+        gap: 24px;
+      }
+
+      .header-inner {
+        align-items: center;
+      }
+
+      .main-nav,
+      .header-actions {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .header-inner.nav-open {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .header-inner.nav-open .main-nav,
+      .header-inner.nav-open .header-actions {
+        display: flex;
+        width: 100%;
+      }
+
+      .header-inner.nav-open .main-nav {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 8px;
+      }
+
+      .header-inner.nav-open .header-actions {
+        justify-content: flex-start;
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 44px 0;
+      }
+
+      .hero {
+        padding: 60px 0 44px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero-lead {
+        font-size: 13px;
+      }
+
+      .problem-grid,
+      .case-grid,
+      .pricing-grid,
+      .options-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .feature-block {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .feature-block:nth-child(2) .feature-media,
+      .feature-block:nth-child(2) .feature-copy {
+        order: initial;
+      }
+
+      .campaign-inner {
+        align-items: flex-start;
+      }
+
+      .site-footer {
+        padding-top: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-form-wrapper,
+      .cta-download-form,
+      .footer-form-wrapper {
+        padding: 16px 14px;
+      }
+
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .logo-card {
+        flex: 0 0 110px;
+        height: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner" id="headerInner">
+      <div class="header-left">
+        <a href="#hero">
+          <img src="./img/logo-placeholder.png" alt="シラレル郵送DM ロゴ" class="logo-img">
+        </a>
+        <div class="service-tagline">「今、検討している企業」だけに届くBtoB郵送DM</div>
+      </div>
+      <nav class="main-nav">
+        <a href="#about">サービス紹介</a>
+        <a href="#features">機能</a>
+        <a href="#pricing">料金</a>
+        <a href="#cases">導入事例</a>
+        <a href="#faq">よくある質問</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#cta-download" class="btn btn-sm btn-outline--blue">資料ダウンロード</a>
+        <a href="#trial" class="btn btn-sm btn-primary">無料トライアル</a>
+      </div>
+      <button class="nav-toggle" aria-label="メニューを開く" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero / First view -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-copy-eyebrow">
+          <span>New</span>
+          今、検討している企業だけに届くBtoB郵送DM
+        </div>
+        <h1>「今、検討している企業」に<br>郵送DMを届ける。</h1>
+
+<!-- /* 文章が多すぎるので省略する */
+        <p class="hero-lead">
+          「業界リスト」に一斉配信する時代から、<br>
+          実際に貴社カテゴリーを調べている企業だけに絞り込んで送る時代へ。<br><br>
+          シラレル郵送DMは、オンライン行動データを活用して、
+          DM1通ごとの歩留まりを最大化します。
+        </p>
+
+        <div class="hero-badges">
+          <div class="hero-badge">問い合わせ率 最大3.2倍※</div>
+          <div class="hero-badge">ターゲット企業を「今」の意図で抽出</div>
+          <div class="hero-badge">既存リストとの掛け合わせも可能</div>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            最低ロット1,000通から実施可能
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot"></span>
+            オンライン広告では届きにくい企業へのアプローチに
+          </div>
+        </div>
+-->
+
+        <div class="hero-visual">
+          <div class="hero-visual-inner">
+            <div class="hero-window-chrome">
+              <div class="hero-dots">
+                <div class="hero-dot"></div>
+                <div class="hero-dot"></div>
+                <div class="hero-dot"></div>
+              </div>
+              <div class="hero-address-bar"></div>
+            </div>
+            <div class="hero-visual-body">
+              <div class="hero-visual-mock">
+                <img src="./img/placeholder-pc-mock.png" alt="郵送DM配信管理画面 モックアップ">
+              </div>
+              <div class="hero-visual-tags">
+                <div class="hero-visual-tag-row">
+                  <div class="hero-pill">「SaaS 資料請求」検索中の企業</div>
+                  <div class="hero-pill">類似サービス比較ページ閲覧企業</div>
+                </div>
+                <div class="hero-visual-tag-row">
+                  <div class="hero-pill">既存顧客の類似企業</div>
+                  <div class="hero-pill">自社サイト再訪問企業</div>
+                </div>
+                <div class="hero-visual-tag-row">
+                  <div class="hero-pill">直近30日以内の検討シグナルに限定配信</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Form -->
+      <div>
+        <div class="hero-form-wrapper">
+          <div class="hero-form-header">
+            <h3>資料ダウンロード（無料）</h3>
+          </div>
+          <form>
+            <div class="form-grid">
+              <div class="form-field field-full">
+                <label for="company">会社名</label>
+                <input id="company" type="text" placeholder="例）株式会社〇〇">
+              </div>
+              <div class="form-field">
+                <label for="name">お名前</label>
+                <input id="name" type="text" placeholder="例）山田 太郎">
+              </div>
+              <div class="form-field">
+                <label for="position">部署・役職</label>
+                <input id="position" type="text" placeholder="例）マーケティング部 部長">
+              </div>
+              <div class="form-field field-full">
+                <label for="email">メールアドレス</label>
+                <input id="email" type="email" placeholder="例）example@example.co.jp">
+              </div>
+              <div class="form-field">
+                <label for="tel">電話番号</label>
+                <input id="tel" type="tel" placeholder="例）03-0000-0000">
+              </div>
+              <div class="form-field">
+                <label for="volume">想定配信通数</label>
+                <select id="volume">
+                  <option value="">選択してください</option>
+                  <option value="under1000">〜1,000通</option>
+                  <option value="1000-5000">1,000〜5,000通</option>
+                  <option value="5000-10000">5,000〜10,000通</option>
+                  <option value="10000-">10,000通以上</option>
+                </select>
+              </div>
+              <div class="form-field field-full">
+                <label for="note">検討している商材やターゲット</label>
+                <textarea id="note" placeholder="例）SaaSの人事システムで、従業員数100名以上の企業へアプローチしたい"></textarea>
+              </div>
+            </div>
+            <p class="form-note">
+              ※同業他社さまのお申し込みはお断りさせていただく場合がございます。<br>
+              ※送信後、入力いただいたメールアドレス宛に資料URLをお送りします。
+            </p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">今すぐ資料をダウンロードする</button>
+              <small>1分で入力完了します</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="section-problems" id="problems">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Problem</span>
+        <h2>営業活動でこんなお悩みありませんか？</h2>
+        <p>「業界リストにとりあえずDMを送る」から卒業し、今まさに検討している企業だけに集中投下しませんか。</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">
+            <img src="./img/placeholder-icon-01.png" alt="課題アイコン1">
+          </div>
+          <h3>リスト作成に時間だけかかって成果が出ない</h3>
+          <p>
+            決算書や企業データベースをかき集めてリストを作っても、
+            「そもそも今検討していない企業」ばかりに送ってしまい、歩留まりが上がらない。
+          </p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <img src="./img/placeholder-icon-02.png" alt="課題アイコン2">
+          </div>
+          <h3>オンライン広告では届かない企業が多い</h3>
+          <p>
+            広告の閲覧・クリックログはあるのに、実際に決裁権を持つ担当者には届いていない。
+            情報収集はしているのに、Web上で捕まえきれていない。
+          </p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <img src="./img/placeholder-icon-03.png" alt="課題アイコン3">
+          </div>
+          <h3>「自社に興味がある企業」がどこか分からない</h3>
+          <p>
+            サイト訪問や資料閲覧などの行動は起きているのに、
+            「どの企業がいつ動きそうか」を可視化できず、営業の優先度付けができていない。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About service -->
+  <section class="section-about" id="about">
+    <div class="container about-inner">
+      <div>
+        <div class="about-label">What is 「シラレル郵送DM」？</div>
+        <h2 class="about-title">Web上のインテントデータ × 郵送DMで、<br>「いいタイミングだけ」に刺さるBtoBアプローチを。</h2>
+        <p class="about-lead">
+          シラレル郵送DMは、Web上の行動データから「今、貴社カテゴリーを検討している企業」を推定し、
+          その企業にだけ郵送DMを届けるBtoB向けDMサービスです。
+        </p>
+        <div class="about-metrics">
+          <div class="metric-pill">
+            <strong>3.2倍</strong> 問い合わせ率の最大向上※
+          </div>
+          <div class="metric-pill">
+            <strong>30日</strong> 以内の検討シグナルに限定配信
+          </div>
+          <div class="metric-pill">
+            <strong>1,000社〜</strong> 小ロットからテスト可能
+          </div>
+        </div>
+        <ul class="about-bullets">
+          <li>
+            <span class="dot"></span>
+            <span>業界・従業員規模に加え、「検索キーワード」「比較ページ閲覧」「資料DL」などのインテントシグナルで抽出。</span>
+          </li>
+          <li>
+            <span class="dot"></span>
+            <span>オンライン広告だけでは届きづらい企業にも、紙DMで確実に到達（オフィス・本社宛）。</span>
+          </li>
+          <li>
+            <span class="dot"></span>
+            <span>既存の顧客リストや過去商談リストとの「掛け合わせ」も可能。攻めたいセグメントをピンポイントに指定できます。</span>
+          </li>
+        </ul>
+        <p class="about-note">※当社実績より。一部案件の比較結果であり、すべての案件で同様の結果を保証するものではありません。</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-header">
+          <span>検討シグナルの可視化画面（イメージ）</span>
+          <span>Intent Score Dashboard</span>
+        </div>
+        <div class="about-visual-tags">
+          <div class="about-visual-tag">SaaS / HR / MAなどカテゴリ別にスコアリング</div>
+          <div class="about-visual-tag">「30日以内に比較検討」フラグ企業を抽出</div>
+          <div class="about-visual-tag">自社CRMにスコアを連携も可能（オプション）</div>
+        </div>
+        <div class="about-visual-mock">
+          <img src="./img/placeholder-dashboard.png" alt="インテントスコアダッシュボード モックアップ">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-features" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Features</span>
+        <h2>3つの特徴で、DM1通あたりの価値を最大化</h2>
+        <p>「誰に」「いつ」「何を」送るかをインテントデータでコントロールし、無駄打ちを減らします。</p>
+      </div>
+      <div class="feature-stack">
+        <div class="feature-block">
+          <div class="feature-copy">
+            <div class="feature-eyebrow">Feature 01</div>
+            <h3 class="feature-title">数百万社規模の法人データベース × 行動ログで「今」動いている企業だけを抽出</h3>
+            <p class="feature-text">
+              国内の企業データベースとWeb行動ログを掛け合わせることで、
+              「条件は合うが検討していない企業」と「条件も合っており検討している企業」を分けて捉えることができます。
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="bullet"></span>
+                <span>業種・売上規模・従業員数などの基本属性に加え、「検討度合い」の軸でもスコアリング。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>「競合サービス名 × 資料請求」など、具体的な検索行動から絞り込みが可能。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>現場で営業リストを作る工数を削減し、アポ取得や商談に時間を割けるようになります。</span>
+              </li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img src="./img/placeholder-feature1.png" alt="法人データベースのイメージ">
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-copy">
+            <div class="feature-eyebrow">Feature 02</div>
+            <h3 class="feature-title">リアルタイムに近い検知で、「検討の熱」が冷める前にDMを投函</h3>
+            <p class="feature-text">
+              検討シグナルを日次〜週次で集計し、スコアが一定以上に達したタイミングで対象企業を抽出。
+              「まとめて送る」のではなく、「熱が高い期間に間に合わせて送る」運用が可能です。
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="bullet"></span>
+                <span>直近30日・60日など、商材特性に合わせた検討期間を設計可能。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>オンタイムに近いスコアリングで、Web広告との連動施策も実施しやすくなります。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>発送単位ごとのスコアをレポートで可視化。次回の配信条件チューニングに活かせます。</span>
+              </li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img src="./img/placeholder-feature2.png" alt="リアルタイム検知のイメージ">
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-copy">
+            <div class="feature-eyebrow">Feature 03</div>
+            <h3 class="feature-title">クリエイティブからリスト設計・効果検証まで、専任チームが伴走</h3>
+            <p class="feature-text">
+              「インテントデータをうまく使えるか不安」「DM施策の経験が少ない」といった場合でもご安心ください。
+              業種別の定番成功パターンをもとに、企画〜実行〜レポートまで伴走します。
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="bullet"></span>
+                <span>クリエイティブ制作のテンプレートもご用意。初回からスピーディに立ち上げ可能。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>商談化・受注化までの指標を分解し、「どのフェーズを改善すべきか」を整理してご報告。</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span>継続配信を前提とせず、まずは小規模テストからのスタートも歓迎です。</span>
+              </li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img src="./img/placeholder-feature3.png" alt="伴走支援のイメージ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Download -->
+  <section class="section-cta-download" id="cta-download">
+    <div class="container cta-download-inner">
+      <div class="cta-download-heading">
+        <h2>資料で、仕組みと事例をまとめて確認しませんか？</h2>
+        <p>
+          「シグナルの取り方」「実際のターゲティング条件」「1通あたりの費用イメージ」など、
+          初回打ち合わせでよくいただくご質問を1冊にまとめました。
+        </p>
+        <ul class="cta-download-points">
+          <li>
+            <span class="check">✓</span>
+            <span>どのようなインテントシグナルを使っているか</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span>業種別の配信事例（SaaS / 人材 / コンサルなど）</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span>最低ロットや目安予算、スケジュールのイメージ</span>
+          </li>
+        </ul>
+        <p class="cta-download-sub-note">
+          まだ導入を決めていない段階でも問題ありません。<br>
+          「自社で使えそうか」を検討するための情報収集として、お気軽にご請求ください。
+        </p>
+      </div>
+      <div>
+        <div class="cta-download-form">
+          <div class="hero-form-header">
+            <h3>資料ダウンロードフォーム</h3>
+            <p>3項目だけの入力で、すぐに資料URLをお送りします。</p>
+          </div>
+          <form>
+            <div class="form-grid">
+              <div class="form-field field-full">
+                <label for="company2">会社名</label>
+                <input id="company2" type="text" placeholder="例）株式会社〇〇">
+              </div>
+              <div class="form-field">
+                <label for="name2">お名前</label>
+                <input id="name2" type="text" placeholder="例）山田 太郎">
+              </div>
+              <div class="form-field">
+                <label for="email2">メールアドレス</label>
+                <input id="email2" type="email" placeholder="例）example@example.co.jp">
+              </div>
+              <div class="form-field field-full">
+                <label for="interest">検討中のテーマ（任意）</label>
+                <textarea id="interest" placeholder="例）既存のホワイトペーパーDLと連動させて、検討度の高い企業だけDMを送りたい"></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">無料で資料を受け取る</button>
+              <small>入力は30秒で完了します</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case studies -->
+  <section class="section-cases" id="cases">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Cases</span>
+        <h2>導入事例</h2>
+        <p>オンライン広告だけでは届いていなかった企業へのアプローチにご活用いただいています。</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-avatar">
+              <img src="./img/avatar-placeholder1.png" alt="導入事例1 担当者写真">
+            </div>
+            <div>
+              <div class="case-title">SaaS企業 A社様（人事システム）</div>
+              <div class="case-meta">従業員規模：100〜300名 / 送付通数：3,000通</div>
+            </div>
+          </div>
+          <p>
+            Web経由のリードは一定数獲得できていたものの、「検討度の高い企業にもっと深く説明したい」という課題がありました。
+            インテントスコアの高い企業に限定して郵送DMを送付した結果、通常の業界一斉DMと比較して
+            問い合わせ率が約2.8倍に向上しました。
+          </p>
+          <span class="case-tag">オンライン×オフラインの連動</span>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-avatar">
+              <img src="./img/avatar-placeholder2.png" alt="導入事例2 担当者写真">
+            </div>
+            <div>
+              <div class="case-title">人材紹介会社 B社様</div>
+              <div class="case-meta">対象：採用強化中の企業 / 送付通数：5,000通</div>
+            </div>
+          </div>
+          <p>
+            既存のテレアポリストが枯渇しつつある中で、「今まさに採用活動を強化している企業」に集中したいというニーズから導入。
+            「採用代行」「中途採用支援」の情報を積極的に検索している企業に絞り、
+            DM経由でのオンライン面談申込が安定的に発生するようになりました。
+          </p>
+          <span class="case-tag">営業リストの再構築</span>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <div class="case-avatar">
+              <img src="./img/avatar-placeholder3.png" alt="導入事例3 担当者写真">
+            </div>
+            <div>
+              <div class="case-title">コンサルティング会社 C社様</div>
+              <div class="case-meta">対象：地方中堅企業 / 送付通数：2,000通</div>
+            </div>
+          </div>
+          <p>
+            地方の中堅企業との接点づくりを目的に、オンライン広告ではリーチしきれない企業に郵送DMで接触。
+            Web行動データから「補助金」「事業承継」などの情報収集が活発な企業を抽出し、
+            DM経由でのセミナー参加・個別相談の申込を獲得しました。
+          </p>
+          <span class="case-tag">地方企業へのリーチ強化</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-pricing" id="pricing">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Pricing</span>
+        <h2>料金プラン</h2>
+        <p>まずは小規模なテストから、無理のない範囲でスタートいただけます。</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">ライトプラン</div>
+          <p class="pricing-desc">初回テストにおすすめのプランです。小ロットでインテントDMの感触を確かめたい方向け。</p>
+          <div class="pricing-price">月額 10万円〜<span>（税別）</span></div>
+          <p class="pricing-note">目安送付通数：1,000〜3,000通程度</p>
+          <ul class="pricing-feature-list">
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>基本ターゲティング（業種・規模・エリア）</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>インテントシグナル1〜2種まで利用可能</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>DMクリエイティブ テンプレート提供</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">–</span>
+              <span>オンライン広告との連動配信はオプション</span>
+            </li>
+          </ul>
+          <div class="pricing-actions">
+            <button class="btn btn-ghost">このプランで相談する</button>
+            <small>まずは費用感の確認からでもOKです</small>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-card--highlight">
+          <div class="pricing-badge">おすすめ</div>
+          <div class="pricing-name">スタンダードプラン</div>
+          <p class="pricing-desc">継続的にインテントDMを運用していきたい企業さま向けの標準プランです。</p>
+          <div class="pricing-price">月額 30万円〜<span>（税別）</span></div>
+          <p class="pricing-note">目安送付通数：3,000〜10,000通程度</p>
+          <ul class="pricing-feature-list">
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>高度なターゲティング（業種・規模・エリア＋インテント）</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>インテントシグナル複数組み合わせ（3種以上）</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>クリエイティブ設計・改善提案を毎回レポート</span>
+            </li>
+            <li>
+              <span class="pricing-feature-check">✓</span>
+              <span>オンライン広告との連動配信（推奨セット）</span>
+            </li>
+          </ul>
+          <div class="pricing-actions">
+            <button class="btn btn-primary">このプランについて詳しく聞く</button>
+            <small>貴社事情に合わせてカスタマイズも可能です</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campaign band -->
+  <section class="section-campaign" id="trial">
+    <div class="container campaign-inner">
+      <div class="campaign-main">
+        <span class="campaign-badge">期間限定</span>
+        <div class="campaign-text">
+          <strong>今なら「インテントスコア算出」初期費用が無料</strong>（月額費のみで6ヶ月間トライアル実施可能）
+        </div>
+      </div>
+      <div>
+        <div class="campaign-sub">※一定の条件がございます。詳細はお問い合わせ時にご案内いたします。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="section-options">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Option Services</span>
+        <h2>成果最大化のためのオプションサービス</h2>
+        <p>DMの「送付」で終わらせず、その後のオンライン行動や営業活動までを見据えた設計が可能です。</p>
+      </div>
+      <div class="options-grid">
+        <div class="option-card">
+          <div class="option-icon">
+            <img src="./img/placeholder-icon-ads.png" alt="広告支援アイコン">
+          </div>
+          <div class="option-label">Option 01</div>
+          <div class="option-title">デジタル広告連動配信</div>
+          <p>
+            DM送付先企業に対して、Meta / Google / 各種ディスプレイ広告で追いかけ配信。
+            「DM + Web広告」で接触頻度を高め、商談化率の向上を狙います。
+          </p>
+          <div class="option-footer">媒体費別途・小ロットからのテストも可能です。</div>
+        </div>
+
+        <div class="option-card">
+          <div class="option-icon">
+            <img src="./img/placeholder-icon-insight.png" alt="インサイト提供アイコン">
+          </div>
+          <div class="option-label">Option 02</div>
+          <div class="option-title">検討企業インサイトレポート</div>
+          <p>
+            DM対象企業がどのようなテーマで情報収集しているかを可視化。
+            次回DMの切り口や、営業トーク・ウェビナー企画などに活用いただけます。
+          </p>
+          <div class="option-footer">四半期ごとなど定期レポートでのご提供も可能です。</div>
+        </div>
+
+        <div class="option-card">
+          <div class="option-icon">
+            <img src="./img/placeholder-icon-support.png" alt="伴走支援アイコン">
+          </div>
+          <div class="option-label">Option 03</div>
+          <div class="option-title">伴走型コンサルティング</div>
+          <p>
+            社内にDMやデータ活用の専任担当者が少ない場合でも、ターゲット設計から施策全体のロードマップ設計まで
+            専任コンサルタントが並走します。
+          </p>
+          <div class="option-footer">月次ミーティング・施策レビューなどをセットでご提供します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-faq" id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">FAQ</span>
+        <h2>よくあるご質問</h2>
+        <p>「まだ導入を決めていない」「情報収集中」という段階でのご相談も歓迎しています。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>
+            <div class="faq-question">どのような業種・商材に向いていますか？</div>
+            <div class="faq-toggle-icon">＋</div>
+          </summary>
+          <div class="faq-answer">
+            SaaS・人材・コンサルティング・アウトソーシング・金融など、検討期間が一定以上あり、
+            比較検討が発生しやすい商材と相性が良いです。
+            一方で、衝動的に決まるような小額商材よりは、単価が高く検討に時間がかかる商材で効果を発揮します。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <div class="faq-question">インテントデータの取得元や仕組みについて教えてください。</div>
+            <div class="faq-toggle-icon">＋</div>
+          </summary>
+          <div class="faq-answer">
+            提携パートナーが保有するWeb行動データを元に、企業の属性情報と照合してスコアリングを行っています。
+            具体的な取得元や計測方法については、個別のご商談にて開示可能な範囲でご説明いたします。
+            個社が特定される形でのレポートや、個人情報の特定は行っていません。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <div class="faq-question">最低ロットや予算の目安を教えてください。</div>
+            <div class="faq-toggle-icon">＋</div>
+          </summary>
+          <div class="faq-answer">
+            最低ロットは概ね1,000通からのご案内となりますが、テスト内容やターゲット条件によって変動します。
+            予算の目安としては、1,000通で数十万円〜を想定いただけるとスムーズです。
+            まずはご希望の対象数・予算をお伺いした上で、最適な設計をご提案いたします。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <div class="faq-question">自社の既存顧客リストやMAツールと連携できますか？</div>
+            <div class="faq-toggle-icon">＋</div>
+          </summary>
+          <div class="faq-answer">
+            はい、可能です。既存の顧客リストや商談リストと、インテントスコアを掛け合わせることで、
+            「既存顧客の中で再提案すべき企業」や「休眠リードの中で検討が再燃している企業」を抽出することもできます。
+            具体的な連携方法は、利用中のツールやデータ形式によって個別にご相談させてください。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <div class="faq-question">まずは情報収集だけでも相談できますか？</div>
+            <div class="faq-toggle-icon">＋</div>
+          </summary>
+          <div class="faq-answer">
+            もちろんです。「今すぐの導入は未定だが、選択肢として理解しておきたい」という段階でのご相談も歓迎しております。
+            具体的な時期や予算が決まっていない場合でも、「自社の商材と相性が良さそうか」を一緒に整理することができます。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-logo-block">
+        <img src="./img/logo-footer-placeholder.png" alt="シラレル郵送DM ロゴ" class="footer-logo-img">
+        <p class="footer-copy">
+          シラレル郵送DMは、Web上のインテントデータを活用して<br>
+          「今、検討している企業」にだけ郵送DMを届けるBtoB向けサービスです。
+        </p>
+        <div class="footer-links">
+          <a href="#about">サービス紹介</a>
+          <a href="#features">機能</a>
+          <a href="#pricing">料金</a>
+          <a href="#cases">導入事例</a>
+          <a href="#faq">よくある質問</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-form-wrapper">
+          <h3>まずは資料ダウンロードから</h3>
+          <p>フォーム送信後、すぐに資料ダウンロードリンクをメールでお送りします。</p>
+          <form>
+            <div class="form-grid">
+              <div class="form-field field-full">
+                <label for="footer-company">会社名</label>
+                <input id="footer-company" type="text" placeholder="例）株式会社〇〇">
+              </div>
+              <div class="form-field">
+                <label for="footer-name">お名前</label>
+                <input id="footer-name" type="text" placeholder="例）山田 太郎">
+              </div>
+              <div class="form-field">
+                <label for="footer-email">メールアドレス</label>
+                <input id="footer-email" type="email" placeholder="例）example@example.co.jp">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-sm">資料を受け取る</button>
+              <small>営業担当からの無理な売り込みは行いません。</small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© 2025 Shiraler DM. All rights reserved.</div>
+      <div class="footer-mini-nav">
+        <a href="#">運営会社</a>
+        <a href="#">個人情報保護方針</a>
+        <a href="#">利用規約</a>
+        <a href="#">お問い合わせ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple header nav toggle for mobile
+    (function () {
+      var navToggle = document.getElementById('navToggle');
+      var headerInner = document.getElementById('headerInner');
+      if (!navToggle || !headerInner) return;
+      navToggle.addEventListener('click', function () {
+        headerInner.classList.toggle('nav-open');
+      });
+    })();
+  </script>
+</body>
+</html>
